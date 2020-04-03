@@ -199,9 +199,7 @@ textarea {
 }
 
 /* ==========================================================================
-   Print styles.
-   Inlined to avoid the additional HTTP request:
-   https://www.phpied.com/delay-loading-your-print-css/
+   Base styles.
    ========================================================================== */
 
 html, body {
@@ -220,27 +218,114 @@ a:hover {
   color: rgb(6, 6, 132) !important;
 }
 
+
+/* ==========================================================================
+   Layout styles.
+   ========================================================================== */
+.row {
+  padding: 24px;
+}
+
+.education {
+  display: none;
+}
+
+.header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 0;
+}
+
+@media print, (min-width: 1000px) {
+
+  main {
+    width: 1000px;
+    margin: 0 auto;
+  }
+
+  .row {
+    padding: 32px;
+  }
+
+  .header-row {
+    align-items: flex-start;
+    padding-bottom: 0;
+  }
+
+  .page-row {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .left-col {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    margin-top: -100px;
+  }
+
+  .left-col .profile {
+    order: 1;
+    color: #fff;
+  }
+
+  .left-col .contacts {
+    order: 2;
+    margin-top: 100px;
+  }
+
+  .left-col .skills {
+    order: 3;
+  }
+
+  .left-col .education {
+    order: 4;
+  }
+
+  .right-col {
+    width: 562px;
+    margin-top: -70px;
+  }
+
+  .education-mobile {
+    display: none;
+  }
+
+  .education {
+    display: block;
+  }
+}
+
+/* ==========================================================================
+   Appearance styles.
+   ========================================================================== */
 main {
-  width: 1000px;
-  margin: 0 auto;
   color: #47167d;
-  background: url(../img/bg.png);
-  background-size: 1200px 700px;
+  background: url(../img/sm.bg.svg);
   background-repeat: no-repeat;
   background-position-x: -300px;
-  background-position-y: -300px;
   background-color: #fff;
 }
 
+@media print, (min-width: 640px) {
+  main {
+    background-position-x: 0;
+  }
+}
+
+@media print, (min-width: 1000px) {
+  main {
+    background-image: url(../img/lg.bg.svg);
+  }
+}
+
 .row {
-  display: flex;
-  padding: 32px;
-  justify-content: space-between;
-  background: url(../img/bg.png);
-  background-size: 1200px 700px;
-  background-repeat: no-repeat;
-  background-position-x: 400px;
-  background-position-y: 1210px;
+  /* background: url(../img/bg.png); */
+  /* background-size: 1200px 700px; */
+  /* background-repeat: no-repeat; */
+  /* background-position-x: 400px; */
+  /* background-position-y: 1210px; */
 }
 
 @media print {
@@ -255,17 +340,16 @@ main {
     background-color: #fff;
   }
   body {
-    background-image: url(../img/bg.png);
-    background-size: 1200px 700px;
-    background-repeat: no-repeat;
-    background-position-x: 400px;
-    background-position-y: 1210px;
+    /* background-image: url(../img/bg.png); */
+    /* background-size: 1200px 700px; */
+    /* background-repeat: no-repeat; */
+    /* background-position-x: 400px; */
+    /* background-position-y: 1210px; */
   }
 }
 
 header {
   color: #fff;
-  height: 400px;
 }
 
 h1 {
@@ -277,7 +361,7 @@ h1 {
 
 h2 {
   font-weight: normal;
-  margin-top: 0;
+  margin-top: 32px;
   margin-bottom: 4px;
   padding-bottom: 4px;
   border-bottom: solid 1px #47167d;
@@ -299,15 +383,7 @@ h4, h5 {
   margin: 0;
 }
 
-.left-col {
-  width: 300px;
-}
-
-.right-col {
-  width: 562px;
-}
-
-.profile .h2 {
+.title {
   font-size: 1.5em;
   border-bottom: solid 1px #fff;
   display: inline-block;
@@ -320,35 +396,56 @@ h4, h5 {
 
 .dp > img {
   border-radius: 50%;
-  width: 160px;
+  border: 5px solid white;
+  width: 100px;
   height: auto;
 }
 
-.skills {
-  color: #47167d;
-  padding-top: 32px;
+@media print, (min-width: 1000px) {
+  .dp > img {
+    width: 160px;
+  }
 }
 
 .page {
   padding-top: 0;
 }
 
-.contacts {
+.contact-list {
   list-style: none;
   padding: 0;
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
 }
 
-.contacts li {
+.contact-list li {
   margin-bottom: 8px;
+  width: 50%;
+  text-align: center;
 }
 
-.contacts li img {
+@media print, (min-width: 1000px) {
+  .contact-list {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0;
+  }
+
+  .contact-list li {
+    width: 100%;
+    text-align: left;
+  }
+}
+
+.contact-list li img {
   width: 24px;
   height: auto;
   margin-right: 8px;
 }
 
-.contacts li svg {
+.contact-list li svg {
   width: 24px;
   height: auto;
   margin-right: 8px;
@@ -366,16 +463,47 @@ h4, h5 {
   fill: #0077B5;
 }
 
-.firefox svg {
-  fill: #FF7139;
+.firefox {
+  display: none;
 }
 
 .gmap svg {
-  fill: #4285F4;
+  display: none;
+}
+
+@media print, (min-width: 400px) {
+  .firefox {
+    display: list-item;
+  }
+
+  .firefox svg {
+    fill: #FF7139;
+  }
+
+  .gmap svg {
+    fill: #4285F4;
+    display: inline-flex;
+  }
 }
 
 .whatsapp svg {
   fill: #25D366;
+}
+
+p.with-breaks > span {
+  display: block;
+}
+
+@media only screen and (min-width: 500px) {
+  p.with-breaks > span {
+    display: inline;
+  }
+}
+
+@media print, (min-width: 1000px) {
+  p.with-breaks > span {
+    display: block;
+  }
 }
 
 .copy {
@@ -427,3 +555,8 @@ li.tabbed {
 i {
   color: #000;
 }
+
+
+/* ==========================================================================
+   media overwrites.
+   ========================================================================== */
