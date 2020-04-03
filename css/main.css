@@ -1,0 +1,429 @@
+/*! HTML5 Boilerplate v7.3.0 | MIT License | https://html5boilerplate.com/ */
+
+/* main.css 2.0.0 | MIT License | https://github.com/h5bp/main.css#readme */
+/*
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+
+html {
+  color: #222;
+  font-size: 1em;
+  line-height: 1.4;
+}
+
+/*
+ * Remove text-shadow in selection highlight:
+ * https://twitter.com/miketaylr/status/12228805301
+ *
+ * Vendor-prefixed and regular ::selection selectors cannot be combined:
+ * https://stackoverflow.com/a/16982510/7133471
+ *
+ * Customize the background color to match your design.
+ */
+
+::-moz-selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+::selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+/*
+ * A better looking default horizontal rule
+ */
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0;
+}
+
+/*
+ * Remove the gap between audio, canvas, iframes,
+ * images, videos and the bottom of their containers:
+ * https://github.com/h5bp/html5-boilerplate/issues/440
+ */
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+  vertical-align: middle;
+}
+
+/*
+ * Remove default fieldset styles.
+ */
+
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+
+textarea {
+  resize: vertical;
+}
+
+/* ==========================================================================
+   Browser Upgrade Prompt
+   ========================================================================== */
+
+.browserupgrade {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+/*
+ * Hide visually and from screen readers
+ */
+
+.hidden {
+  display: none !important;
+}
+
+/*
+* Hide only visually, but have it available for screen readers:
+* https://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+*
+* 1. For long content, line feeds are not interpreted as spaces and small width
+*    causes content to wrap 1 word per line:
+*    https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
+*/
+
+.sr-only {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  /* 1 */
+}
+
+/*
+* Extends the .sr-only class to allow the element
+* to be focusable when navigated to via the keyboard:
+* https://www.drupal.org/node/897638
+*/
+
+.sr-only.focusable:active,
+.sr-only.focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  white-space: inherit;
+  width: auto;
+}
+
+/*
+* Hide visually and from screen readers, but maintain layout
+*/
+
+.invisible {
+  visibility: hidden;
+}
+
+/*
+* Clearfix: contain floats
+*
+* For modern browsers
+* 1. The space content is one way to avoid an Opera bug when the
+*    `contenteditable` attribute is included anywhere else in the document.
+*    Otherwise it causes space to appear at the top and bottom of elements
+*    that receive the `clearfix` class.
+* 2. The use of `table` rather than `block` is only necessary if using
+*    `:before` to contain the top-margins of child elements.
+*/
+
+.clearfix:before,
+.clearfix:after {
+  content: " ";
+  /* 1 */
+  display: table;
+  /* 2 */
+}
+
+.clearfix:after {
+  clear: both;
+}
+
+/* ==========================================================================
+   EXAMPLE Media Queries for Responsive Design.
+   These examples override the primary ('mobile first') styles.
+   Modify as content requires.
+   ========================================================================== */
+
+@media only screen and (min-width: 35em) {
+  /* Style adjustments for viewports that meet the condition */
+}
+
+@media print,
+  (-webkit-min-device-pixel-ratio: 1.25),
+  (min-resolution: 1.25dppx),
+  (min-resolution: 120dpi) {
+  /* Style adjustments for high resolution devices */
+}
+
+/* ==========================================================================
+   Print styles.
+   Inlined to avoid the additional HTTP request:
+   https://www.phpied.com/delay-loading-your-print-css/
+   ========================================================================== */
+
+html, body {
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: 'Rubik', sans-serif;
+  background-color: #efefef;
+}
+
+a {
+  color: rgb(0, 0, 238) !important;
+}
+
+a:hover {
+  color: rgb(6, 6, 132) !important;
+}
+
+main {
+  width: 1000px;
+  margin: 0 auto;
+  color: #47167d;
+  background: url(../img/bg.png);
+  background-size: 1200px 700px;
+  background-repeat: no-repeat;
+  background-position-x: -300px;
+  background-position-y: -300px;
+  background-color: #fff;
+}
+
+.row {
+  display: flex;
+  padding: 32px;
+  justify-content: space-between;
+  background: url(../img/bg.png);
+  background-size: 1200px 700px;
+  background-repeat: no-repeat;
+  background-position-x: 400px;
+  background-position-y: 1210px;
+}
+
+@media print {
+  .row {
+    background-image: none;
+    background-color: transparent;
+  }
+  main {
+    background-color: transparent;
+  }
+  html, body {
+    background-color: #fff;
+  }
+  body {
+    background-image: url(../img/bg.png);
+    background-size: 1200px 700px;
+    background-repeat: no-repeat;
+    background-position-x: 400px;
+    background-position-y: 1210px;
+  }
+}
+
+header {
+  color: #fff;
+  height: 400px;
+}
+
+h1 {
+  font-weight: normal;
+  margin-top: 0;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-weight: normal;
+  margin-top: 0;
+  margin-bottom: 4px;
+  padding-bottom: 4px;
+  border-bottom: solid 1px #47167d;
+}
+
+h3 {
+  font-weight: normal;
+  margin: 0;
+  margin-bottom: 0px;
+  margin-top: 12px;
+}
+
+h3:first-child {
+  margin-top: 0;
+}
+
+h4, h5 {
+  font-weight: normal;
+  margin: 0;
+}
+
+.left-col {
+  width: 300px;
+}
+
+.right-col {
+  width: 562px;
+}
+
+.profile .h2 {
+  font-size: 1.5em;
+  border-bottom: solid 1px #fff;
+  display: inline-block;
+  padding-bottom: 4px;
+}
+
+.dp {
+  text-align: right;
+}
+
+.dp > img {
+  border-radius: 50%;
+  width: 160px;
+  height: auto;
+}
+
+.skills {
+  color: #47167d;
+  padding-top: 32px;
+}
+
+.page {
+  padding-top: 0;
+}
+
+.contacts {
+  list-style: none;
+  padding: 0;
+}
+
+.contacts li {
+  margin-bottom: 8px;
+}
+
+.contacts li img {
+  width: 24px;
+  height: auto;
+  margin-right: 8px;
+}
+
+.contacts li svg {
+  width: 24px;
+  height: auto;
+  margin-right: 8px;
+}
+
+.gmail svg {
+  fill: #D14836;
+}
+
+.github svg {
+  fill: #181717;
+}
+
+.linkedin svg {
+  fill: #0077B5;
+}
+
+.firefox svg {
+  fill: #FF7139;
+}
+
+.gmap svg {
+  fill: #4285F4;
+}
+
+.whatsapp svg {
+  fill: #25D366;
+}
+
+.copy {
+  font-size: 15px;
+}
+
+.copy p {
+  font-size: 1em;
+  margin: 0;
+}
+
+.copy h3 {
+  font-size: 1.3em;
+}
+
+.copy h4 {
+  font-size: 1em;
+  font-weight: 500;
+}
+
+.copy h5 {
+  font-size: 1em;
+  font-style: italic;
+  font-weight: 400;
+  margin-top: 4px;
+  color: #000;
+}
+
+.copy ul {
+  list-style-type: none;
+  font-size: 1em;
+  padding: 0;
+  margin: 0;
+}
+
+li.dashed {
+  text-indent: -8px;
+  padding-left: 8px;
+}
+li.dashed:before {
+  content: "- ";
+  text-indent: -8px;
+}
+
+li.tabbed {
+  padding-left: 20px;
+}
+
+i {
+  color: #000;
+}

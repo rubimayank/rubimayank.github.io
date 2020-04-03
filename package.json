@@ -1,0 +1,13 @@
+{
+  "name": "rubitaresume",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Rubita",
+  "license": "MIT",
+  "dependencies": {
+    "live-server": "^1.2.1"
+  },
+  "scripts": {
+    "watch": "live-server"
+  }
+}
