@@ -178,19 +178,21 @@
       wrapper.appendChild(span)
       wrapper.style.display = 'list-item';
     }
+    function updateInfo(info) {
+      const { phone, email } = info || {};
+      if (phone) {
+        addLink('whatsapp', phone, `tel:${phone}`);
+      }
+      if (phone) {
+        addLink('gmail', email, `mailto:${email}`);
+      }
+    }
+    window.updateInfo = updateInfo;
     if(window && window.fetch) {
       fetch('./info.json').then((response) => {
         const { status } = response || {};
         if (status === 200) {
-          response.json().then((info) => {
-            const { phone, email } = info || {};
-            if (phone) {
-              addLink('whatsapp', phone, `tel:${phone}`);
-            }
-            if (phone) {
-              addLink('gmail', email, `mailto:${email}`);
-            }
-          });
+          response.json().then(updateInfo);
         }
       });
     }
