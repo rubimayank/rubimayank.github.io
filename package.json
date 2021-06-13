@@ -4,10 +4,11 @@
   "main": "index.js",
   "author": "Rubita",
   "license": "MIT",
-  "dependencies": {
-    "live-server": "^1.2.1"
-  },
+  "dependencies": {},
   "scripts": {
     "watch": "live-server"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.1"
   }
 }
