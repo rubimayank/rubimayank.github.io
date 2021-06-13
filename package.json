@@ -9,6 +9,7 @@
     "watch": "live-server"
   },
   "devDependencies": {
+    "glob-parent": "^6.0.0",
     "live-server": "^1.2.1"
   }
 }
