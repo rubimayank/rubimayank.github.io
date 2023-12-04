@@ -324,6 +324,13 @@ main {
   }
 }
 
+@media print {
+  main {
+    /*background-image: url(../img/lg.bg.svg);*/
+    background-image: url(../img/printbg.png);
+  }
+}
+
 .row {
   /* background: url(../img/bg.png); */
   /* background-size: 1200px 700px; */
