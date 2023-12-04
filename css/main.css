@@ -208,6 +208,7 @@ html, body {
   box-sizing:border-box;
   font-family: Roboto, Arial, sans-serif;
   background-color: #efefef;
+  background-color: #fff;
 }
 
 a {
@@ -222,89 +223,88 @@ a:hover {
 /* ==========================================================================
    Layout styles.
    ========================================================================== */
-.row {
+main {
   padding: 24px;
+  display: grid;
+  grid-template-areas:
+    'header dp'
+    'contacts contacts'
+    'profile profile'
+    'skills skills'
+    'experience experience'
+    'education education';
+  grid-template-columns: auto min-content;
+  max-width: 1400px;
+}
+
+header {
+  grid-area: header;
+}
+
+.dp {
+  grid-area: dp;
+}
+
+.contacts {
+  grid-area: contacts;
+}
+
+.profile {
+  grid-area: profile;
+}
+
+.skills {
+  grid-area: skills;
+}
+
+.experience {
+  grid-area: experience;
 }
 
 .education {
-  display: none;
+  grid-area: education;
 }
 
-.header-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-bottom: 0;
-}
-
-@media print, (min-width: 1000px) {
-
+@media (min-width: 1000px) {
   main {
-    width: 1000px;
     margin: 0 auto;
+    grid-template-areas:
+    'header dp'
+    'profile experience'
+    'contacts experience'
+    'skills experience'
+    'education experience';
+    grid-template-columns: 30% auto;
+    grid-column-gap: 24px;
+  }
+}
+
+@media print {
+  html {
+    zoom: .85;
+  }
+    
+  main {
+    margin: 0 auto;
+    grid-template-areas:
+    'header header'
+    'profile experience'
+    'contacts experience'
+    'skills experience'
+    'education experience';
+    grid-template-columns: 35% auto;
+    grid-column-gap: 24px;
   }
 
-  .row {
-    padding: 32px;
-  }
-
-  .header-row {
-    align-items: flex-start;
-    padding-bottom: 0;
-  }
-
-  .page-row {
-    display: flex;
-    justify-content: space-between;
-  }
-
-  .left-col {
-    width: 300px;
-    display: flex;
-    flex-direction: column;
-    margin-top: -100px;
-  }
-
-  .left-col .profile {
-    order: 1;
-    font-weight: 500;
-  }
-
-  .left-col .contacts {
-    order: 2;
-    margin-top: 10px;
-  }
-
-  .left-col .skills {
-    order: 3;
-  }
-
-  .left-col .education {
-    order: 4;
-  }
-
-  .right-col {
-    width: 600px;
-    margin-top: -70px;
-  }
-
-  .right-col .projects {
-    padding-top: 40px;
-  }
-
-  .education-mobile {
+  .dp {
     display: none;
-  }
-
-  .education {
-    display: block;
   }
 }
 
 /* ==========================================================================
    Appearance styles.
    ========================================================================== */
-main {
+body {
   color: #47167d;
   background: url(../img/sm.bg.svg);
   background-repeat: no-repeat;
@@ -313,19 +313,20 @@ main {
 }
 
 @media print, (min-width: 640px) {
-  main {
+  body {
     background-position-x: 0;
   }
 }
 
 @media print, (min-width: 1000px) {
-  main {
+  body {
     background-image: url(../img/lg.bg.svg);
+    background-size: contain;
   }
 }
 
 @media print {
-  main {
+  body {
     /*background-image: url(../img/lg.bg.svg);*/
     background-image: url(../img/printbg.png);
   }
@@ -372,7 +373,7 @@ h1 {
 
 h2 {
   font-weight: 500;
-  margin-top: 32px;
+  margin-top: 8px;
   margin-bottom: 4px;
   padding-bottom: 4px;
   border-bottom: solid 1px #47167d;
@@ -411,6 +412,10 @@ h4, h5 {
   border: 5px solid white;
   width: 100px;
   height: auto;
+}
+
+.profile {
+  font-size: 1em;
 }
 
 @media (min-width: 1000px) {
