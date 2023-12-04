@@ -206,7 +206,7 @@ html, body {
   margin:0;
   padding:0;
   box-sizing:border-box;
-  font-family: 'Rubik', sans-serif;
+  font-family: Roboto, Arial, sans-serif;
   background-color: #efefef;
 }
 
@@ -267,12 +267,12 @@ a:hover {
 
   .left-col .profile {
     order: 1;
-    color: #fff;
+    font-weight: 500;
   }
 
   .left-col .contacts {
     order: 2;
-    margin-top: 100px;
+    margin-top: 10px;
   }
 
   .left-col .skills {
@@ -364,14 +364,14 @@ header {
 }
 
 h1 {
-  font-weight: normal;
+  font-weight: 500;
   margin-top: 0;
   margin-bottom: 4px;
   text-transform: uppercase;
 }
 
 h2 {
-  font-weight: normal;
+  font-weight: 500;
   margin-top: 32px;
   margin-bottom: 4px;
   padding-bottom: 4px;
@@ -396,7 +396,8 @@ h4, h5 {
 
 .title {
   font-size: 1.5em;
-  border-bottom: solid 1px #fff;
+  font-weight: 500;
+  border-bottom: solid 2px #fff;
   display: inline-block;
   padding-bottom: 4px;
 }
@@ -412,9 +413,21 @@ h4, h5 {
   height: auto;
 }
 
-@media print, (min-width: 1000px) {
+@media (min-width: 1000px) {
   .dp > img {
     width: 160px;
+  }
+}
+
+@media print {
+  .dp > img {
+    width: 160px;
+  }
+}
+
+@media print {
+  .dp {
+    visibility: hidden;
   }
 }
 
