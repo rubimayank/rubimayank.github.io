@@ -403,6 +403,12 @@ h4, h5 {
   padding-bottom: 4px;
 }
 
+@media print {
+  .title {
+    margin-bottom: 32px;
+  }
+}
+
 .dp {
   text-align: right;
 }
