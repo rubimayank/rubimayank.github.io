@@ -232,6 +232,7 @@ main {
     'profile profile'
     'skills skills'
     'experience experience'
+    'projects projects'
     'education education';
   grid-template-columns: auto min-content;
   max-width: 1400px;
@@ -261,6 +262,11 @@ header {
   grid-area: experience;
 }
 
+.projects {
+  grid-area: projects;
+  margin-top: 12px;
+}
+
 .education {
   grid-area: education;
 }
@@ -273,7 +279,8 @@ header {
     'profile experience'
     'contacts experience'
     'skills experience'
-    'education experience';
+    'education experience'
+    'none projects';
     grid-template-columns: 30% auto;
     grid-column-gap: 24px;
   }
@@ -281,7 +288,7 @@ header {
 
 @media print {
   html {
-    zoom: .85;
+    
   }
     
   main {
@@ -291,7 +298,12 @@ header {
     'profile experience'
     'contacts experience'
     'skills experience'
-    'education experience';
+    'education experience'
+    'none experience'
+    'none experience'
+    'none experience'
+    'none experience'
+    'none projects';
     grid-template-columns: 35% auto;
     grid-column-gap: 24px;
   }
@@ -328,7 +340,8 @@ body {
 @media print {
   body {
     /*background-image: url(../img/lg.bg.svg);*/
-    background-image: url(../img/printbg.png);
+    /* background-image: url(../img/printbg.png); */
+    background-image: none;
   }
 }
 
@@ -362,6 +375,12 @@ body {
 
 header {
   color: #fff;
+}
+
+@media print {
+  header {
+    color: #000;
+  }
 }
 
 h1 {
@@ -406,6 +425,7 @@ h4, h5 {
 @media print {
   .title {
     margin-bottom: 32px;
+    border-bottom: solid 2px #000;
   }
 }
 
